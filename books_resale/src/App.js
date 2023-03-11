@@ -4,6 +4,7 @@ import { Routes ,Route, BrowserRouter, Navigate } from 'react-router-dom';
 import { Container } from '@mui/material';
 import Form from './components/Form/Form';
 import Navbar from './components/Navbar/Navbar';
+import LandingPage from './components/LandingPage/LandingPage';
 
 function App() {
 
@@ -12,8 +13,9 @@ function App() {
       <Container maxWidth='xl'>
         <Navbar/>
         <Routes>
-          <Route path='/' element={<Form/>}></Route>
+          <Route path='/' element={<LandingPage/>}></Route>
           <Route path='/books' index element={<Home/>}></Route>
+          <Route path='/form' element={<Form/>}></Route>
         </Routes>
       </Container>
     </BrowserRouter>
