@@ -5,6 +5,7 @@ import { Container } from '@mui/material';
 import Form from './components/Form/Form';
 import Navbar from './components/Navbar/Navbar';
 import LandingPage from './components/LandingPage/LandingPage';
+import Auth from './components/Auth/Auth';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
           <Route path='/' element={<LandingPage/>}></Route>
           <Route path='/books' index element={<Home/>}></Route>
           <Route path='/form' element={<Form/>}></Route>
+          <Route path='/auth' element={<Auth/>}></Route>
         </Routes>
       </Container>
     </BrowserRouter>

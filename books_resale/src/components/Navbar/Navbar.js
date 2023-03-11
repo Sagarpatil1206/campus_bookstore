@@ -11,6 +11,7 @@ const Navbar = () => {
       <Button color='primary' variant='contained' onClick={()=>{navigate('/')}}> Home</Button>
       <Button color='primary' variant='contained' onClick={()=>{navigate('/books')}}> Book Store</Button>
       <Button color='primary' variant='contained' onClick={()=>{navigate('/form')}}> Form</Button>
+      <Button color='primary' variant='contained' onClick={()=>{navigate('/auth')}}> Auth</Button>
       </div>
     </AppBar>
   );
