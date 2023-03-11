@@ -1,35 +1,22 @@
-import { Grid } from '@mui/material';
-import { Container } from '@mui/system';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { getPosts } from './actions/post';
 import './App.css';
+import Home from './components/Home/Home';
+import { Routes ,Route, BrowserRouter, Navigate } from 'react-router-dom';
+import { Container } from '@mui/material';
 import Form from './components/Form/Form';
 import Navbar from './components/Navbar/Navbar';
-import Posts from './components/Posts/Posts';
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(()=>{
-    dispatch(getPosts());
-  },[dispatch]);
 
   return (
-    <Container maxWidth='xl'>
-      <Navbar/>
-      <Container>
-        <Grid container>
-          <Grid item sm={0} justifyContent='end'>
-            <Posts/>
-          </Grid>
-          <Grid item sm={12}>
-            <Form/>
-          </Grid>
-        </Grid>
+    <BrowserRouter> {/*It is the parent component used to store all other components.*/}
+      <Container maxWidth='xl'>
+        <Navbar/>
+        <Routes>
+          <Route path='/' element={<Form/>}></Route>
+          <Route path='/books' index element={<Home/>}></Route>
+        </Routes>
       </Container>
-    </Container>
-    
+    </BrowserRouter>
   );
 }
 

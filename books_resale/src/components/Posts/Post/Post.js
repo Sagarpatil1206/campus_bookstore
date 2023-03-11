@@ -2,7 +2,6 @@ import React from 'react';
 import {Button, Card, CardActions, CardContent, CardMedia, Paper, Typography} from '@mui/material'
 
 const Post = ({post}) => {
-  console.log(post);
   return (
     // <Paper elevation={2} sx={{borderRadius:1,p:1.5}}>
       <Card sx={{ maxWidth: 345 ,padding:3}}>
@@ -15,7 +14,7 @@ const Post = ({post}) => {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          {post.year + " " + post.semester}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Lizards are a widespread group of squamate reptiles, with over 6,000
