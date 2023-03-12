@@ -6,10 +6,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background: #faf8f5; */
-  /* background-image: url('file:///C:/Users/dell/Downloads/website_bg%20(1).png'); */
-  background-image: linear-gradient(to right,#F9C810,#FEE795);
+  /* background-image: url('file:///C:/Users/dell/Desktop/books_resale/books_resale/src/images/website_bg.png'); */
+  /* background-image: linear-gradient(to right,#F9C810,#FEE795); */
+  background-image: linear-gradient(to right, #F9C810, #f6d970);
   background-size:100%;
-  /* background-repeat: no-repeat; */
+  /* background-repeat: no-repeat;  */
 }
 
 code {
