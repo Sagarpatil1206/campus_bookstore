@@ -53,10 +53,10 @@ const Form = () => {
               label="year"
               onChange={(e)=> setPostData({...postData, year : e.target.value })}
             >
-            <MenuItem value={'1'}>1st Year</MenuItem>
-            <MenuItem value={'2'}>2nd Year</MenuItem>
-            <MenuItem value={'3'}>3rd Year</MenuItem>
-            <MenuItem value={'4'}>4th Year</MenuItem>
+            <MenuItem value={'FE'}>1st Year</MenuItem>
+            <MenuItem value={'SE'}>2nd Year</MenuItem>
+            <MenuItem value={'TE'}>3rd Year</MenuItem>
+            <MenuItem value={'BE'}>4th Year</MenuItem>
           </Select>
         </FormControl>
         <FormControl sx={{width:1/4}}>
