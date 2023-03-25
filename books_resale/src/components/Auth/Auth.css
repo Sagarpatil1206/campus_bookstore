@@ -1,0 +1,75 @@
+.Auth{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    height: 100vh;
+    gap:4rem;
+    position: relative;
+}
+
+.Auth>div{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* left side */
+
+.a-left>img{
+    width: 4rem;
+    height: 4rem;
+}
+.Webname>h1{
+    font-size: 3rem;
+    /* background-color: darkgoldenrod; */
+}
+.Webname>h6{
+    font-size: 0.85rem;
+    /* background-color: rgb(186, 146, 45); */
+}
+
+.infoForm{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    gap: 2rem;
+}
+
+.infoInput{
+    border: none;
+    outline: none;
+    background-color: #e8e4c2;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1;
+}
+
+.infoForm>div{
+    display: flex;
+    gap: 1rem;
+    height: 2rem;
+    width: 90%;
+}
+
+.infoButton{
+    width: 6rem;
+    height: 2rem;
+    border: none;
+    outline: none;
+    background-color: hwb(45 9% 13%);
+    border-radius: 8px;
+    align-self: flex-end;
+}
+
+.authForm{
+    background-color: rgb(240, 234, 119);
+    border-radius: 1rem;
+    padding: 3rem;
+}
+
+.authForm>div{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
