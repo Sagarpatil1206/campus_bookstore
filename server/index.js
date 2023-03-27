@@ -3,8 +3,9 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv'
-
-import postRoutes from './routes/post.js'
+import PostRoutes from './routes/post.js'
+import AuthRoutes from './routes/Auth.js'
+import UserRoutes from './routes/User.js'
 
 const app = express();
 dotenv.config();
@@ -13,7 +14,9 @@ app.use(bodyParser.json({limit:'50mb',extended:true}));
 app.use(bodyParser.urlencoded({limit:'50mb',extended:true}));
 app.use(cors());
 
-app.use('/posts',postRoutes);
+app.use('/posts',PostRoutes);
+app.use('/auth',AuthRoutes);
+app.use('/user',UserRoutes);
 
 mongoose.set("strictQuery",false);
 const PORT = process.env.PORT || 5000;

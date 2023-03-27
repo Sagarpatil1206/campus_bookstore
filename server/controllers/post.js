@@ -1,5 +1,5 @@
 import PostModel from "../model/post.js";
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 
 export const getPosts = async(req,res) => {
   try{
@@ -15,10 +15,26 @@ export const getPosts = async(req,res) => {
 
 export const createPost = async(req,res) => {
     const post = req.body;
+    // const newPost = new PostModel({...post,creator:req.userId});
     const newPost = new PostModel(post);
     try{
       await newPost.save();
     }catch(error){
       res.status(409).json(error);
   }
+}
+
+export const updatePost = async(req,res) => {
+  const postId = req.params.id;
+  const {userId} = req.body;
+  try {
+    const post = await PostModel.findById(postId);
+    //remaining code
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const deletePost = async(req,res) => {
+  
 }
