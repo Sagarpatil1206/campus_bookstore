@@ -76,3 +76,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.button:hover{
+  cursor: pointer;
+}
+
+.submitButton{
+  margin: auto;
+  font-size: medium;
+  border: 2px solid violet;
+  /* background-color:  hwb(294 38% 13%); */
+}

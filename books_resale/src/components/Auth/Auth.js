@@ -1,13 +1,50 @@
-import React, { useState } from 'react';
-import './Auth.css'
+import React, { useState } from "react";
+import {useDispatch} from 'react-redux'
+import "./Auth.css";
 // import Logo from '../../images/logo.png'
-
+import { logIn , signUp } from "../../actions/authActions";
 
 function Auth() {
-  const [IsLogin, setIsLogin] = useState(true);
-  // console.log(setdata);
-  const ToggleLogin = () => {
-    setIsLogin(!IsLogin)
+  const [isSignUp, setIsSignUp] = useState(true);
+  const [confirmPass,setConfirmPass] = useState(true)
+  const dispatch = useDispatch();
+
+  const [authData, setAuthData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    confirmpassword: "",
+  });
+
+   const handleChange = (e) => {
+    setAuthData({ ...authData, [e.target.name]: e.target.value });
+  };
+  const ToggleLogin = (e) => {
+    e.preventDefault();
+    setIsSignUp(!isSignUp);
+    resetForm();
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(isSignUp){
+      (authData.password === authData.confirmpassword) ? dispatch(signUp(authData)) : setConfirmPass(false);
+    }else{
+      dispatch(logIn(authData));
+    }
+
+  }
+
+  const resetForm = () => {
+    setConfirmPass(true);
+    setAuthData({
+      firstname: "",
+      lastname: "",
+      email: "",
+      password: "",
+      confirmpassword: "",
+    });
   }
   return (
     <div className="Auth">
@@ -18,44 +55,107 @@ function Auth() {
           <h6>Use it, resale it</h6>
         </div>
       </div>
-      {IsLogin ? (
+
       <div className="a-right">
-        <form className="infoForm authForm">
-          <h3>Sign Up</h3>
+        <form className="infoForm authForm" onSubmit={handleSubmit}>
+          <h3>{isSignUp ? `Sign Up` : `Log In`}</h3>
+
+          {isSignUp && (
+            <div>
+              <input
+                type="text"
+                placeholder="First Name"
+                className="infoInput"
+                name="firstname"
+                onChange={handleChange}
+                value={authData.firstname}
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                className="infoInput"
+                name="lastname"
+                onChange={handleChange}
+                value={authData.lastname}
+              />
+            </div>
+          )}
+
           <div>
-            <input type="text" placeholder='First Name'
-              className='infoInput' name='firstname' />
-            <input type="text" placeholder='Last Name'
-              className='infoInput' name='lastname' />
+            <input
+              type="text"
+              placeholder="email"
+              className="infoInput"
+              name="email"
+              onChange={handleChange}
+              value={authData.email}
+            />
           </div>
+
           <div>
-            <input type="text" placeholder='Username'
-              className='infoInput' name='username' />
+            <input
+              type="password"
+              placeholder="Password"
+              className="infoInput"
+              name="password"
+              onChange={handleChange}
+              value={authData.password}
+            />
+            {isSignUp && (
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                className="infoInput"
+                name="confirmpassword"
+                onChange={handleChange}
+                value={authData.confirmpassword}
+              />
+            )}
           </div>
-          <div>
-            <input type="password" placeholder='Password'
-              className='infoInput' name='password' />
-            <input type="password" placeholder='Confirm Password'
-              className='infoInput' name='confirmpassword' />
-          </div>
-          <div>
-            <p > Already have an account. <button  className='button infoButton' onClick={ToggleLogin}>Log In</button></p>
-            {/* <button onClick ={()=>setcount(count+1)}> LogIn</button>
-          { 
-            count && <LogIn/>
-          } */}
-          </div>
-          <button className='button infoButton' type='submit'>Signup</button>
+          <span
+            style={{
+              color: "black",
+              fontSize: "12px",
+              alignSelf: "flex-end",
+              marginRight: "5px",
+              display: confirmPass ? "none" : "block",
+            }}
+          >
+            *Confirm password is not same
+          </span>
+          {isSignUp ? (
+            <>
+              <div>
+                <p> Already have an account. </p>
+                <button className="button infoButton but" onClick={ToggleLogin}>
+                  Log In
+                </button>
+              </div>
+              <button className="button infoButton submitButton" type="submit">
+                Signup
+              </button>
+            </>
+          ) : (
+            <>
+              <div>
+                <span> Don't have an account!</span>
+                <button className="button infoButton" onClick={ToggleLogin}>
+                  Signup
+                </button>
+              </div>
+              <button className="button infoButton submitButton" type="submit">
+                LogIn
+              </button>
+            </>
+          )}
         </form>
       </div>
-      ) :
-      (
-      <div className="a-right">
+      {/* <div className="a-right">
         <form className="infoForm authForm">
-          <h3>Log In</h3>
+        <h3>{isSignUp ? `Log In `: `Sign Up`}</h3>
           <div>
-            <input type="text" placeholder='Username'
-              className='infoInput' name='username' />
+            <input type="text" placeholder='email'
+              className='infoInput' name='email' />
           </div>
           <div>
             <input type="text" placeholder='Password'
@@ -66,29 +166,11 @@ function Auth() {
            
             <button className='button infoButton' onClick={ToggleLogin}>Signup</button>
           </div>
-          <button className='button infoButton' type='submit'>LogIn</button>
+          <button className='button infoButton submitButton' type='submit'>LogIn</button>
         </form>
-      </div>
-      )}
-
-     
+      </div> */}
     </div>
   );
-};
-
-
-
-// function SignUp(){
-//   const [count, setcount]=useState(0);
-//   return (
-
-//   )
-// }
-
-// function LogIn(){
-//   return (
-
-//   )
-// }
+}
 
 export default Auth;

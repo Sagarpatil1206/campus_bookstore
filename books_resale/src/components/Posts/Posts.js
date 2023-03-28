@@ -7,7 +7,7 @@ import './Posts.css'
 const Posts = () => {
   const posts = useSelector((state)=>state.posts);
   console.log("In post section");
-  console.log(posts);
+  // console.log(posts);
   return (
     <div className='postsPage'>
       <Grid container spacing={3} marginTop='10px'>

@@ -2,7 +2,7 @@ import { Grid } from '@mui/material';
 import { Container } from '@mui/system';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getPosts } from '../../actions/post';
+import { getPosts } from '../../actions/postActions';
 import Posts from '../Posts/Posts';
 
 const Home = () => {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Button, FormControl, FormControlLabel, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TextField, Typography, useMediaQuery} from '@mui/material'
 import {useDispatch} from 'react-redux'
 // import {useNavigate} from 'react-router-dom'
-import {createPost} from '../../actions/post'
+import {createPost} from '../../actions/postActions'
 import { UseMediaQuery } from '@mui/material';
 import FileBase from 'react-file-base64';
 import './form.css'
