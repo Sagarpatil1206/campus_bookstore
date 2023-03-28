@@ -13,14 +13,42 @@ const PostDetails = () => {
   }, [dispatch, id]);
   return (
     <div>
-      {post.year +
+      Post Details
+      {post?.year +
         " " +
-        post.branch +
+        post?.branch +
         " " +
-        post.semester.toUpperCase() +
+        post?.semester.toUpperCase() +
         " SEM "}
     </div>
   );
 };
+
+/*
+college: String,
+  year : String,
+  branch : String,
+  semester : String,
+  original_price:String,
+  resale_price:String,
+  // contact_number : String,
+  books_stack:String,
+  book1 : String,
+  book2 : String,
+  book3 : String,
+  book4 : String,
+  book5 : String,
+  book1_pub:String,
+  book2_pub:String,
+  book3_pub:String,
+  book4_pub:String,
+  book5_pub:String,
+  book1_img : String,
+  book2_img : String,
+  book3_img : String,
+  book4_img : String,
+  book5_img : String,
+  creator : String,
+*/
 
 export default PostDetails;
