@@ -26,6 +26,7 @@ const postModel = new Schema({
   book3_img : String,
   book4_img : String,
   book5_img : String,
+  fix_nego : String,
   creator : String,
   // wishlist_count :{
   //   type : Number,

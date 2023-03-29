@@ -2,27 +2,55 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getPost } from "../../actions/postActions";
+import { useState } from "react";
+import "./PostDetails.css"
+
 
 const PostDetails = () => {
   const { post } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
   const { id } = useParams();
+  const [mainImage, setMainImage] = useState(post?.books_stack);
+  const allImages = [post?.books_stack, post?.book1_img, post?.book2_img, post?.book3_img, post?.book4_img, post?.book5_img];
 
   useEffect(() => {
     dispatch(getPost(id));
+    setMainImage(post?.books_stack)
   }, [dispatch, id]);
+
+  useEffect(()=>{
+    setMainImage(post?.books_stack);
+  },[post]);
+
   return (
     <div>
-      Post Details
-      {post?.year +
-        " " +
+      <img src={mainImage} alt="Main Image" className="main-image" />
+      <div>
+        {allImages.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`Image ${index}`}
+            className="image"
+            onClick={() => setMainImage(image)}
+          />
+        ))}
+        </div>
+    </div>
+  );
+};
+{/* <div>
+      Post Details:
+      {post && post.books_stack && (
+        <img src={post.books_stack} alt="Image of books stack" />
+      )}
+      {" " +
         post?.branch +
         " " +
         post?.semester.toUpperCase() +
         " SEM "}
-    </div>
-  );
-};
+    </div> */}
+
 
 /*
 college: String,
@@ -38,7 +66,7 @@ college: String,
   book3 : String,
   book4 : String,
   book5 : String,
-  book1_pub:String,
+   book1_pub:String,
   book2_pub:String,
   book3_pub:String,
   book4_pub:String,
@@ -51,4 +79,4 @@ college: String,
   creator : String,
 */
 
-export default PostDetails;
+export default PostDetails;

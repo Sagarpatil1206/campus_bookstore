@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {useDispatch} from 'react-redux'
 import "./Auth.css";
-// import Logo from '../../images/logo.png'
+import logo from '../../images/logo.png'
 import { logIn , signUp } from "../../actions/authActions";
 
 function Auth() {
@@ -20,6 +20,7 @@ function Auth() {
    const handleChange = (e) => {
     setAuthData({ ...authData, [e.target.name]: e.target.value });
   };
+  
   const ToggleLogin = (e) => {
     e.preventDefault();
     setIsSignUp(!isSignUp);
@@ -33,7 +34,6 @@ function Auth() {
     }else{
       dispatch(logIn(authData));
     }
-
   }
 
   const resetForm = () => {
@@ -48,11 +48,14 @@ function Auth() {
   }
   return (
     <div className="Auth">
+      <div style={{boxShadow: '2px 2px red;'}}>
+        <img src={logo} style={{height:'250px',width:'250px'}}/>
+      </div>
+
       <div className="a-left">
-        {/* <img src={Logo} alt="" /> */}
         <div className="Webname">
-          <h1>Book Resale</h1>
-          <h6>Use it, resale it</h6>
+          <h1 style={{fontSize:'70px'}}>Book Resale</h1>
+          <h2>&nbsp;Use it, resale it</h2>
         </div>
       </div>
 

@@ -4,7 +4,8 @@
 /* #8818ff, #d956f0 */
 body{
   /* background-image: url('file:///C:/Users/dell/Desktop/books_resale/books_resale/src/images/website_bg.png'); */
-  background: linear-gradient(to right, #841dc0, #e943ff) ;
+  /* background: linear-gradient(to right, #841dc0, #e943ff) ; */
+  background: #fffdf7 ;
   background-size: cover;
   /* background-repeat: no-repeat;  */
 }

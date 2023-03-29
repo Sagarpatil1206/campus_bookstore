@@ -12,6 +12,9 @@
   align-items:center;
   justify-content:center;
 }
+.a-left{
+  margin-left: 0px;
+}
 
 .a-left>img{
   justify-content: center;
@@ -24,6 +27,7 @@
 }
 .Webname>h6{
   font-size: 0.85rem;
+  margin: 0 0;
   /* background-color: rgb(186, 146, 45); */
 }
 
@@ -57,7 +61,7 @@
   height: 2rem;
   border: none;
   outline: none;
-  background-color: hwb(294 38% 13%);
+  background-color: #ffbf00;
   border-radius: 8px;
   align-self: flex-end;
   /* hwb(272 0% 3% / 0.512); */
@@ -65,7 +69,8 @@
 
 .authForm{
   
-  background-color:   #d6afe2b4 ;
+  /* background-color:   #d6afe2b4 ; */
+  background-color:   #f1db98 ;
   border-radius: 1rem;
   padding: 3rem;
   /* rgba(171, 130, 188, 0.822); */
@@ -84,6 +89,6 @@
 .submitButton{
   margin: auto;
   font-size: medium;
-  border: 2px solid violet;
+  border: 2px solid #ffbf00;
   /* background-color:  hwb(294 38% 13%); */
 }
