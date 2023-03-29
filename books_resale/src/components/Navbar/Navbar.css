@@ -3,5 +3,7 @@
 }
 
 .MuiButton-outlined {
-  border-color: black !important;
+  border-color: #f9cd48 !important;
+  border-width: 1.5px !important;
+  color: #ffe28b ;
   }

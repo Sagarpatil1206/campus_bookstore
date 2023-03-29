@@ -25,12 +25,15 @@ const Post = ({ post }) => {
   const openPost = () => navigate(`/books/${post._id}`);
   return (
     // <Paper elevation={2} sx={{borderRadius:1,p:1.5}}>
-    <Card elevation={3}
+    <Card elevation={4}
       sx={{
         maxWidth: 345,
         padding: 3,
         backgroundColor: "#FFE996",
         borderRadius: 5,
+        ':hover': {
+          boxShadow: 12, // theme.shadows[20]
+        },
       }}
     >
       <CardMedia
@@ -101,19 +104,24 @@ const Post = ({ post }) => {
               color: "black",
               marginLeft: 7,
               fontWeight: "bold",
+              ':hover': {
+                backgroundColor:'#F9C810' // theme.shadows[20]
+              },
             }}
             onClick={openPost}
           >
             View Details
           </Button>
-          <Button
+          {/* uncomment below code for delete button */}
+          {/* <Button
             size="small"
             color="primary"
             onClick={() => dispatch(deletePost(post._id))}
             // disabled={!flag}
           >
             <DeleteIcon fontSize="small" /> Delete
-          </Button>
+          </Button> */}
+
         </Typography>
       </CardContent>
       {/* <CardActions>
