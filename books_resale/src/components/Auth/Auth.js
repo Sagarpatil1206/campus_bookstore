@@ -48,7 +48,7 @@ function Auth() {
   }
   return (
     <div className="Auth">
-      <div style={{boxShadow: '2px 2px red;'}}>
+      <div>
         <img src={logo} style={{height:'250px',width:'250px'}}/>
       </div>
 

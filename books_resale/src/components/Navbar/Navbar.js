@@ -14,6 +14,7 @@ const Navbar = () => {
         <Button  sx={{color:'black'}} variant='outlined' onClick={()=>{navigate('/books')}}> Book Store</Button>
         <Button  sx={{color:'black'}} variant='outlined' onClick={()=>{navigate('/form')}}> Form</Button>
         <Button  sx={{color:'black'}} variant='outlined' onClick={()=>{navigate('/auth')}}> Auth</Button>
+        <Button  sx={{color:'black'}} variant='outlined' onClick={()=>{navigate('/chat')}}> chat</Button>
       </div>
     </AppBar>
     <Divider variant='middle' sx={{color:'black',borderBottomWidth:'1.75px'}}/>

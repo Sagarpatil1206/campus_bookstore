@@ -25,7 +25,7 @@ const Post = ({ post }) => {
   const openPost = () => navigate(`/books/${post._id}`);
   return (
     // <Paper elevation={2} sx={{borderRadius:1,p:1.5}}>
-    <Card
+    <Card elevation={3}
       sx={{
         maxWidth: 345,
         padding: 3,
@@ -41,7 +41,7 @@ const Post = ({ post }) => {
         image={post.books_stack}
         sx={{ borderRadius: 5 }}
       />
-      <IconButton
+      {/* <IconButton
         onClick={() => {
           setIsSaved(!isSaved);
         }}
@@ -52,8 +52,9 @@ const Post = ({ post }) => {
         ) : (
           <BookmarkBorderIcon sx={{ fontSize: 35 }} />
         )}
-      </IconButton>
+      </IconButton> */}
       <CardContent>
+        <div style={{display:'flex',justifyContent:'space-between'}}>
         <Typography
           gutterBottom
           variant="h5"
@@ -67,12 +68,25 @@ const Post = ({ post }) => {
             post.semester.toUpperCase() +
             " SEM "}
         </Typography>
+        <IconButton
+        onClick={() => {
+          setIsSaved(!isSaved);
+        }}
+        sx={{ pt:0 }}
+      >
+        {isSaved ? (
+          <Bookmark sx={{ fontSize: '35px' }} />
+        ) : (
+          <BookmarkBorderIcon sx={{ fontSize: '35px' }} />
+        )}
+      </IconButton>
+      </div>
         <Typography
           variant="body2"
           color="black"
           sx={{ fontFamily: "Merriweather", fontWeight: "bold" }}
         >
-          Subjects: {post.book1},{post.book2},{post.book3},{post.book4},
+          <p style={{marginBottom:'4px'}}>Subjects:</p> {post.book1},{post.book2},{post.book3},{post.book4},
           {post.book5}
         </Typography>
       </CardContent>
