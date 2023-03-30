@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getPost } from "../../actions/postActions";
 import { useState } from "react";
-import "./PostDetails.css"
+import "./PostDetails.css";
+import { Card } from "@mui/material";
 
 
 const PostDetails = () => {
@@ -15,27 +16,36 @@ const PostDetails = () => {
 
   useEffect(() => {
     dispatch(getPost(id));
-    setMainImage(post?.books_stack)
   }, [dispatch, id]);
-
-  useEffect(()=>{
+  useEffect(() => {
     setMainImage(post?.books_stack);
-  },[post]);
-
+  }, [post]);
   return (
+
     <div>
-      <img src={mainImage} alt="Main Image" className="main-image" />
-      <div>
-        {allImages.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt={`Image ${index}`}
-            className="image"
-            onClick={() => setMainImage(image)}
-          />
-        ))}
+      <Card
+        sx={{ boxShadow: "0 0 0 2px #e0dede", maxWidth: 540, marginLeft: 10, marginBottom: 5, padding: 3, alignContent: "center" }}
+      // class="booksDisplayCard"
+      >
+        <img
+          src={mainImage}
+          alt="Main Image"
+          className="main-image"
+          sx={{ maxWidth: 500, Height: 500, padding: 3, margin: 0 }}
+        />
+        <div>
+          {allImages.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`Image ${index}`}
+              className="image"
+              // sx={{ maxWidth: 10, height: 30 }}
+              onClick={() => setMainImage(image)}
+            />
+          ))}
         </div>
+      </Card>
     </div>
   );
 };
@@ -66,7 +76,7 @@ college: String,
   book3 : String,
   book4 : String,
   book5 : String,
-   book1_pub:String,
+  book1_pub:String,
   book2_pub:String,
   book3_pub:String,
   book4_pub:String,
@@ -79,4 +89,4 @@ college: String,
   creator : String,
 */
 
-export default PostDetails;
+export default PostDetails;
