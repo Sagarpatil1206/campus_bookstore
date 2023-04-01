@@ -48,13 +48,9 @@ function Auth() {
   }
   return (
     <div className="Auth">
-      <div>
-        <img src={logo} style={{height:'250px',width:'250px'}}/>
-      </div>
-
       <div className="a-left">
         <div className="Webname">
-          <h1 style={{fontSize:'70px'}}>Book Resale</h1>
+          <h1>Book Resale</h1>
           <h2>&nbsp;Use it, resale it</h2>
         </div>
       </div>
