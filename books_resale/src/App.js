@@ -8,7 +8,6 @@ import LandingPage from './components/LandingPage/LandingPage';
 import Auth from './components/Auth/Auth';
 import PostDetails from './components/PostDetails/PostDetails';
 import { useEffect, useState } from 'react';
-import Messenger from './components/chat/Messenger';
 
 function App() {
   const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
@@ -27,8 +26,6 @@ function App() {
           <Route path='/books/:id' element={<PostDetails/>}></Route>
           <Route path='/form' element={<Form/>}></Route>
           <Route path='/auth' element={user ?  <Navigate to='/'/>: <Auth/>}></Route>
-          {/* <Route path='/chat' element={user ?  <Messenger/>:<Navigate to='/'/>}/> */}
-          <Route path='/chat' element={<Messenger/>}/>
         </Routes>
       </Container>
     </BrowserRouter>
